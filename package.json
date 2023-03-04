@@ -5,8 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "prestart": "node_modules/typescript/bin/tsc --project .",
-    "start": "node dist/node-discovery.js",
+    "build": "node_modules/typescript/bin/tsc --project .",
     "lint": "eslint --ext .ts src/ && prettier --check .",
     "lint:fix": "eslint --ext .ts src/ --fix && prettier --write ."
   },
