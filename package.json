@@ -1,0 +1,37 @@
+{
+  "name": "libp2p-playground",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "prestart": "node_modules/typescript/bin/tsc --project .",
+    "start": "node dist/node-discovery.js",
+    "lint": "eslint --ext .ts src/ && prettier --check .",
+    "lint:fix": "eslint --ext .ts src/ --fix && prettier --write ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@chainsafe/libp2p-noise": "^11.0.1",
+    "@libp2p/mdns": "^6.0.0",
+    "@libp2p/mplex": "^7.1.1",
+    "@libp2p/tcp": "^6.1.2",
+    "libp2p": "^0.42.2"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "@typescript-eslint/parser": "^5.15.0",
+    "eslint": "^8.17.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-n": "^15.2.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "prettier": "^2.8.3",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.2"
+  }
+}
