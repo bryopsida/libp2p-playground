@@ -1,0 +1,32 @@
+on:
+  workflow_dispatch:
+    inputs:
+      swarm_key:
+        description: 'PSK For Relay Net in Base64'
+        required: true
+        type: string
+      relay_ip:
+        description: 'Node Relay IP'
+        required: true
+        type: string
+      relay_peer_id:
+        description: 'Node Relay Peer Id'
+        required: true
+        type: string
+jobs:
+  run-peers:
+    strategy:
+      matrix:
+        version: [1, 2, 3, 4, 5, 6, 7]
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm ci
+      - run: npm run build
+      - run: node dist/relay/release.js
+        env:
+          RELAY_IP: ${{ inputs.relay_ip }}
+          RELAY_PEER_ID: ${{ inputs.relay_peer_id }}
+          SWARM_KEY: ${{ inputs.swarm_key }}
