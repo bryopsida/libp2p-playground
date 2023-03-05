@@ -7,6 +7,8 @@ import { floodsub } from '@libp2p/floodsub'
 import { bootstrap } from '@libp2p/bootstrap'
 import { kadDHT } from '@libp2p/kad-dht'
 import { preSharedKey } from 'libp2p/pnet'
+import { pubsubPeerDiscovery } from '@libp2p/pubsub-peer-discovery'
+
 
 const swarmKey = Buffer.from(process.env.SWARM_KEY as string, 'base64')
 const psk = preSharedKey({
@@ -35,10 +37,11 @@ const createNode = () => {
     dht: kadDHT(),
     connectionProtector: psk,
     peerDiscovery: [
+      pubsubPeerDiscovery(),
       bootstrap({
         list: [
           // a list of bootstrap peer multiaddrs to connect to on node startup
-          `/ip4/${process.env.RELAY_IP}/tcp/32500/ipfs/${process.env.RELAY_PEER_ID}`,
+          `/ip4/${process.env.RELAY_IP}/tcp/32500/p2p/${process.env.RELAY_PEER_ID}`,
         ],
         timeout: 1000, // in ms,
         tagName: 'bootstrap',

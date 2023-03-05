@@ -7,6 +7,7 @@ import { mdns } from '@libp2p/mdns'
 import { kadDHT } from '@libp2p/kad-dht'
 import { preSharedKey, generateKey } from 'libp2p/pnet'
 import { floodsub } from '@libp2p/floodsub'
+import { pubsubPeerDiscovery } from '@libp2p/pubsub-peer-discovery'
 
 const swarmKey = process.env.SWARM_KEY
   ? Buffer.from(process.env.SWARM_KEY, 'base64')
@@ -41,6 +42,7 @@ const createNode = () => {
       mdns({
         interval: 20e3,
       }),
+      pubsubPeerDiscovery()
     ],
   })
 }
