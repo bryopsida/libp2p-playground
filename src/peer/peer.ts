@@ -23,6 +23,15 @@ const createNode = () => {
     streamMuxers: [mplex()],
     connectionEncryption: [noise()],
     pubsub: floodsub(),
+    relay: {
+      enabled: true,
+      hop: {
+        enabled: true
+      },
+      advertise: {
+        enabled: true
+      }
+    },
     dht: kadDHT(),
     connectionProtector: psk,
     peerDiscovery: [

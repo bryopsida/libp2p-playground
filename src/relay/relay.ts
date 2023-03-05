@@ -28,6 +28,15 @@ const createNode = () => {
       enabled: true,
       psk: swarmKey,
     }),
+    relay: {
+      enabled: true,
+      hop: {
+        enabled: true
+      },
+      advertise: {
+        enabled: true
+      }
+    },
     peerDiscovery: [
       mdns({
         interval: 20e3,
