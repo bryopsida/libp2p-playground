@@ -8,7 +8,7 @@
     "syncRelayPackages": "ssh cloud-relay 'cd relay && npm ci'",
     "preuploadRelay": "npm run build",
     "uploadRelay": "scp dist/relay/relay.js cloud-relay:~/relay/relay.js && scp package.json cloud-relay:~/relay/package-lock.json && scp package-lock.json cloud-relay:~/relay/package-lock.json",
-    "relayPeer": "node dist/relay/relay.js",
+    "relayPeer": "node dist/peer/peer.js",
     "build": "node_modules/typescript/bin/tsc --project .",
     "lint": "eslint --ext .ts src/ && prettier --check .",
     "lint:fix": "eslint --ext .ts src/ --fix && prettier --write ."
