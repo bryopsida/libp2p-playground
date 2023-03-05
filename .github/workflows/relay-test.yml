@@ -26,6 +26,7 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: node dist/relay/release.js
+        timeout-minutes: 10
         env:
           RELAY_IP: ${{ inputs.relay_ip }}
           RELAY_PEER_ID: ${{ inputs.relay_peer_id }}
