@@ -28,7 +28,7 @@
     "libp2p": "^3.0.0"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^5.15.0",
     "eslint": "^8.17.0",
     "eslint-config-prettier": "^10.0.0",
